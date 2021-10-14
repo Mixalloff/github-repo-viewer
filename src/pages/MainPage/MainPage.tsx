@@ -59,7 +59,7 @@ export default function MainPage() {
   function search() {
     githubApiService.getUser(state.username)
       .then(data => {
-        history.push(`/${state.username}`, { data });
+        history.push(`${process.env.PUBLIC_URL}/${state.username}`, { data });
       })
       .catch(err => setState({ ...state, errors: err.response.data || err }));
   }

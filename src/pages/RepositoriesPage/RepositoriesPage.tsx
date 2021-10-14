@@ -28,7 +28,7 @@ export default function RepositoriesPage(props: RouteComponentProps<Repositories
 
   const { history, match } = props;
   const handleRepositoryClicked = (repository: any) =>
-    history.push(`/${match.params.username}/${repository.name}`);
+    history.push(`${process.env.PUBLIC_URL}/${match.params.username}/${repository.name}`);
   const errorsAlert = (
     <Alert
       message="Error"

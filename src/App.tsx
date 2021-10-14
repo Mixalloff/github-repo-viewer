@@ -30,19 +30,19 @@ function App() {
                   <Spin size="large" style={{ display: 'flex', justifyContent: 'center', padding: '1rem' }}/>
                 }>
                   <Switch>
-                    <Route exact path="/">
+                    <Route exact path={`${process.env.PUBLIC_URL}/`}>
                       <MainPage />
                     </Route>
 
                     <Route
                       exact
-                      path="/:username"
+                      path={`${process.env.PUBLIC_URL}/:username`}
                       render={(p)=>(<RepositoriesPage {...p}  />)}
                     />
 
                     <Route
                       exact
-                      path="/:username/:repositoryName"
+                      path={`${process.env.PUBLIC_URL}/:username/:repositoryName`}
                       render={(p)=>(<RepositoryContentPage {...p}  />)}
                     />
                   </Switch>
