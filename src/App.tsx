@@ -1,24 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import './App.scss';
+import Layout, { Content, Header } from 'antd/lib/layout/layout';
+import { Col, Row, Spin } from 'antd';
+import MainPage from './pages/MainPage/MainPage';
+
+const RepositoriesPage = lazy(() => import('./pages/RepositoriesPage/RepositoriesPage'));
+const RepositoryContentPage = lazy(() => import('./pages/RepositoryContentPage/RepositoryContentPage'));
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Layout className="layout">
+          <Header>
+            <h1 style={{color: 'white'}}>Github repo viewer app</h1>
+          </Header>
+          
+          <Content>
+            <Row>
+              <Col span={12} offset={6}>
+              
+                <Suspense fallback={
+                  <Spin size="large" style={{ display: 'flex', justifyContent: 'center', padding: '1rem' }}/>
+                }>
+                  <Switch>
+                    <Route exact path="/">
+                      <MainPage />
+                    </Route>
+
+                    <Route
+                      exact
+                      path="/:username"
+                      render={(p)=>(<RepositoriesPage {...p}  />)}
+                    />
+
+                    <Route
+                      exact
+                      path="/:username/:repositoryName"
+                      render={(p)=>(<RepositoryContentPage {...p}  />)}
+                    />
+                  </Switch>
+                </Suspense>
+              </Col>
+            </Row>
+          </Content>
+        </Layout>
+      </Router>
     </div>
   );
 }
