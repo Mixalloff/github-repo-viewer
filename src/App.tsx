@@ -7,10 +7,10 @@ import {
 import './App.scss';
 import Layout, { Content, Header } from 'antd/lib/layout/layout';
 import { Col, Row, Spin } from 'antd';
-import MainPage from './pages/MainPage/MainPage';
+import MainPage from './pages/MainPage';
 
-const RepositoriesPage = lazy(() => import('./pages/RepositoriesPage/RepositoriesPage'));
-const RepositoryContentPage = lazy(() => import('./pages/RepositoryContentPage/RepositoryContentPage'));
+const RepositoriesPage = lazy(() => import('./pages/RepositoriesPage'));
+const RepositoryContentPage = lazy(() => import('./pages/RepositoryContentPage'));
 
 function App() {
 

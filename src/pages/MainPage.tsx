@@ -1,7 +1,7 @@
 import { Alert, Button, Input, PageHeader } from 'antd';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { GithubApiService } from '../../api/github-api.service';
+import { GithubApiService } from '../api/github-api.service';
 
 interface MainPageState {
   data: any;
@@ -61,6 +61,6 @@ export default function MainPage() {
       .then(data => {
         history.push(`${process.env.PUBLIC_URL}/${state.username}`, { data });
       })
-      .catch(err => setState({ ...state, errors: err.response.data || err }));
+      .catch(err => setState({ ...state, errors: err.response?.data || err }));
   }
 }

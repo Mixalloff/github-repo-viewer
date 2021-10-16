@@ -2,7 +2,7 @@ import { Card, Empty, List, PageHeader, Space } from "antd";
 import DOMPurify from "dompurify";
 import { createElement, useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { GithubApiService } from "../../api/github-api.service";
+import { GithubApiService } from "../api/github-api.service";
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons';
 
 interface RepositoryContentProps {

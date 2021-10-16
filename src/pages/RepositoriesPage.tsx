@@ -1,8 +1,8 @@
 import { Alert, Empty, PageHeader } from "antd";
 import { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { GithubApiService } from "../../api/github-api.service";
-import RepositoriesList from "../../components/RepositoriesList";
+import { GithubApiService } from "../api/github-api.service";
+import RepositoriesList from "../components/RepositoriesList";
 
 interface RepositoriesPageProps {
   username: string;
