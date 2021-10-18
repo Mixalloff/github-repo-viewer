@@ -8,6 +8,7 @@ interface RepositoriesListProps {
 }
 
 export default function RepositoriesList(props: RepositoriesListProps) {
+  // Cards for display while loading in process
   const defaultLoadingList = [1, 2, 3];
   const loadingList = (
     <>
