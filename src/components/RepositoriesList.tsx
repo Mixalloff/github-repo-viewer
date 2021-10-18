@@ -1,10 +1,11 @@
 import { Row, Col } from "antd";
+import { RepositoryItemDto } from "../api/models/repository.dto";
 import RepositoriesListItem from "./RepositoriesListItem";
 
 interface RepositoriesListProps {
-  items: any[] | undefined;
+  items: RepositoryItemDto[] | undefined;
   loading?: boolean;
-  onItemClick: (item: any) => any;
+  onItemClick: (item: RepositoryItemDto) => void;
 }
 
 export default function RepositoriesList(props: RepositoriesListProps) {
@@ -15,7 +16,7 @@ export default function RepositoriesList(props: RepositoriesListProps) {
       {
         defaultLoadingList.map(item => 
           <Col span={8} key={item} >
-            <RepositoriesListItem item={item} loading={!!props.loading} />
+            <RepositoriesListItem loading={!!props.loading} />
           </Col>
         )
       }

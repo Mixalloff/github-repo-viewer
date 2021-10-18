@@ -2,17 +2,16 @@ import { Alert, Button, Input, PageHeader } from 'antd';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GithubApiService } from '../api/github-api.service';
+import { ErrorDto } from '../api/models/errors.dto';
 
 interface MainPageState {
-  data: any;
   username: string;
   loading: boolean;
-  errors: any;
+  errors: ErrorDto | undefined;
 }
 
 export default function MainPage() {
   const [state, setState] = useState<MainPageState>({
-    data: {},
     username: '',
     loading: false,
     errors: undefined,

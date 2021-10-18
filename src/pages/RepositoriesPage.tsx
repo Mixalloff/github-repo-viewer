@@ -2,6 +2,8 @@ import { Alert, Empty, PageHeader } from "antd";
 import { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { GithubApiService } from "../api/github-api.service";
+import { ErrorDto } from "../api/models/errors.dto";
+import { RepositoryItemDto } from "../api/models/repository.dto";
 import RepositoriesList from "../components/RepositoriesList";
 
 interface RepositoriesPageProps {
@@ -9,9 +11,9 @@ interface RepositoriesPageProps {
 }
 
 interface RepositoriesPageState {
-  items: any[] | undefined;
+  items: RepositoryItemDto[] | undefined;
   loading?: boolean;
-  errors?: any | undefined;
+  errors?: ErrorDto | undefined;
 }
 
 export default function RepositoriesPage(props: RouteComponentProps<RepositoriesPageProps>) {
@@ -27,7 +29,7 @@ export default function RepositoriesPage(props: RouteComponentProps<Repositories
   }, []);
 
   const { history, match } = props;
-  const handleRepositoryClicked = (repository: any) =>
+  const handleRepositoryClicked = (repository: RepositoryItemDto) =>
     history.push(`${process.env.PUBLIC_URL}/${match.params.username}/${repository.name}`);
   const errorsAlert = (
     <Alert

@@ -4,6 +4,7 @@ import { createElement, useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { GithubApiService } from "../api/github-api.service";
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons';
+import { ContentDto } from "../api/models/content.dto";
 
 interface RepositoryContentProps {
   username: string;
@@ -11,8 +12,8 @@ interface RepositoryContentProps {
 }
 
 interface RepositoryContentPageState {
-  files: any[] | undefined;
-  readmeMarkdown: any | undefined;
+  files: ContentDto[] | undefined;
+  readmeMarkdown: string | undefined;
   loading: boolean;
 }
 
@@ -24,7 +25,7 @@ export default function RepositoryContentPage(props: RouteComponentProps<Reposit
     readmeMarkdown: undefined,
     loading: false,
   });
-  const itemIconByType = ({ type }: any) => {
+  const itemIconByType = ({ type }: ContentDto) => {
     return type === 'dir'
       ? createElement(FolderOutlined)
       : createElement(FileTextOutlined);
