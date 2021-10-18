@@ -1,6 +1,6 @@
-#Github repo viewer
+# Github repo viewer
 
-This is test project using React.
+This is test project using React.\
 Used technologies:
   - React 17
   - Ant Design (design framework)
@@ -39,5 +39,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run deploy`
 
-Build and deploy the project to Github Pages
+Build and deploy the project to Github Pages.\
 You can see the result here: [https://mixalloff.github.io/github-repo-viewer/](https://mixalloff.github.io/github-repo-viewer/)
